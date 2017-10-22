@@ -1,4 +1,4 @@
-package com.staks.authservice.core;
+package com.mytasks.oauth.core;
 
 import java.util.Collection;
 

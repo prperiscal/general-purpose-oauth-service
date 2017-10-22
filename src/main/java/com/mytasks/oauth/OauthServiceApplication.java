@@ -1,4 +1,4 @@
-package com.staks.authservice;
+package com.mytasks.oauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

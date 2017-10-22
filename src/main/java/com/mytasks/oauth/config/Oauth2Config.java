@@ -1,4 +1,4 @@
-package com.staks.authservice.config;
+package com.mytasks.oauth.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;

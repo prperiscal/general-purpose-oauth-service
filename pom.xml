@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.staks</groupId>
-	<artifactId>stasks-oauth-service</artifactId>
+	<groupId>com.mytasks</groupId>
+	<artifactId>mytasks-oauth-service</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>stask-oauth-service</name>
+	<name>mytasks-oauth-service</name>
 	<description>Microservice for authentication security</description>
 
 	<parent>
