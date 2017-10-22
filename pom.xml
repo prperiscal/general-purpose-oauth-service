@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.myfashion</groupId>
-	<artifactId>myfashion-oauth-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.staks</groupId>
+	<artifactId>stasks-oauth-service</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>myfashion-oauth-service</name>
+	<name>stask-oauth-service</name>
 	<description>Microservice for authentication security</description>
 
 	<parent>

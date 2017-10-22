@@ -1,4 +1,4 @@
-package com.myfashion.authservice.service;
+package com.staks.authservice.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,7 +15,7 @@ public class UserDetailService implements UserDetailsService {
      * @param userEmail String user identifier. In our case this field will be the user email
      *
      * @return UserDetails
-     * @throws UsernameNotFoundException
+     * @throws UsernameNotFoundException if user was no found
      */
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {

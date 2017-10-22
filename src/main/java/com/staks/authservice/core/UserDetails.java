@@ -1,4 +1,4 @@
-package com.myfashion.authservice.core;
+package com.staks.authservice.core;
 
 import java.util.Collection;
 

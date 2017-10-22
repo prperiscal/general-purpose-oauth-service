@@ -1,12 +1,13 @@
-package com.myfashion.authservice;
+package com.staks.authservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 
 /**
- * @EnableResourceServer will turn our application into a resource server
- * (enables Spring Scurity filter to authenticate requests via an incoming OAuth2 token).
+ * {@link EnableAuthorizationServer @EnableAuthorizationServer} will turn our application into a oauthrization server.
+ *
+ * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
  */
 @EnableAuthorizationServer
 @SpringBootApplication

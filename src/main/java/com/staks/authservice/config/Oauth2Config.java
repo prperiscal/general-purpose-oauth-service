@@ -1,4 +1,4 @@
-package com.myfashion.authservice.config;
+package com.staks.authservice.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -15,8 +15,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @Configuration
 public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
 
-    public static final String OAUTH = "OAuth-service";
-    public static final String GRANT_TYPE = "client-grant";
+    private static final String OAUTH = "OAuth-service";
+    private static final String GRANT_TYPE = "client-grant";
 
     /**
      * Add configuration for clients.
