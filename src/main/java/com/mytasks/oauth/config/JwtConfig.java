@@ -7,6 +7,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
+ * Configuration class to create jwt tokens
+ *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
  */
 @Configuration
@@ -19,6 +21,7 @@ public class JwtConfig {
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
+        //Todo use certificates
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
         jwtAccessTokenConverter.setSigningKey("1234");
         return jwtAccessTokenConverter;

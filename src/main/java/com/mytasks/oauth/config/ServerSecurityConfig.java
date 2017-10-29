@@ -35,8 +35,18 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    /**
+     * Define authorization endpoints access
+     * <p>
+     * Override default configure to disable formLogin feature and to disable csrf support
+     *
+     * @param http the {@link HttpSecurity} to modify
+     *
+     * @throws Exception if an error occurs
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //Todo research csrf https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html
         // @formatter:off
         http
             .csrf().disable()
@@ -45,4 +55,5 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests().antMatchers("/**").authenticated().and().httpBasic();
         // @formatter:on
     }
+
 }

@@ -6,6 +6,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
+ * Service to retrieve user identities containing authentication info.
+ * <p>
+ * Check for more information on how we handle users {@link org.springframework.security.core.userdetails.UserDetails UserDetails}
+ *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
  */
 @Service
@@ -16,7 +20,7 @@ public class UserDetailService implements UserDetailsService {
      *
      * @param userEmail String user identifier. In our case this field will be the user email
      *
-     * @return UserDetails
+     * @return UserDetails {@link UserDetails}. Out implementation for {@link org.springframework.security.core.userdetails.UserDetails Spring user Details}
      * @throws UsernameNotFoundException if user was no found
      */
     @Override
