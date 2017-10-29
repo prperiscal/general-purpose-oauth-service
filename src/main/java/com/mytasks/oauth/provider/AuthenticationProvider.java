@@ -1,17 +1,29 @@
 package com.mytasks.oauth.provider;
 
+import static java.util.Collections.emptyList;
+
+import com.mytasks.oauth.service.UserDetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * Implementation for providing User authentication check.
+ * Implementation of a custom Authentication Provider for providing User authentication check.
+ * <p>
+ * Every user (not client) will trigger {@link #authenticate(Authentication)} where the verification will be handle.
+ * <p>
+ * {@link UserDetailService} will be used to retrieve the user.
  *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
  */
+@RequiredArgsConstructor
 @Configuration
 public class AuthenticationProvider implements org.springframework.security.authentication.AuthenticationProvider {
+
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * Checks user credentials.
@@ -25,8 +37,13 @@ public class AuthenticationProvider implements org.springframework.security.auth
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         //The user name in authentication process will allways be the email in our implementation
         String userEmail = authentication.getName();
+        String pass = authentication.getCredentials().toString();
+        String rawPassword = (String) authentication.getCredentials();
+        if(!passwordEncoder.matches(rawPassword, pass)) {
+            //throw new BadCredentialsException("Wrong password");
+        }
 
-        return authentication;
+        return new UsernamePasswordAuthenticationToken(userEmail, pass, emptyList());
     }
 
     /**
