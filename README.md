@@ -1,6 +1,10 @@
 # mytasks-oauth-service
 
-Authorization Server responsible for verifying credentials and providing access tokens
+Authorization Server responsible for verifying credentials and providing access tokens.
+
+Communicates directly with User service and with tenant/realm service in order to retrieve information to ensure and build the users credentials.
+
+![OAuth_Diagram](https://image.ibb.co/ifdDjb/oauth.png)
 
 ## Contributing
 
@@ -8,7 +12,7 @@ Please read [CONTRIBUTING](https://gist.github.com/prperiscal/900729941edc5d5dda
 
 ## Workflow
 
-Please read [WORKFLOW-BRANCING](https://gist.github.com/prperiscal/ce8b8b5a9e0f79378475243e2d227011) for details on our workflow and branching directives. 
+Please read [WORKFLOW-BRANCHING](https://gist.github.com/prperiscal/ce8b8b5a9e0f79378475243e2d227011) for details on our workflow and branching directives. 
 
 ## Technologies involved
 
@@ -57,13 +61,13 @@ We are working with the four Roles specified in OAuth2 definition as follow:
 
 ### OAuth Grants
 
-An authorization grant is a credential representing the resource owner’s authorization used by the client to obtain an access token. There are different types of authentications, for example, if we are an user and we want to login using the web page, we need a token which can identify the user (we), the place from were we are login (we could be using a mobile app instead of the web), and also we want a refesh token to not be asked for a re-loging. On the other hand if we are now a service and we want to communicate with another one, we don't have (and don't want) a user credentials neither the need for a refresh token.
+An authorization grant is a credential representing the resource owner’s authorization used by the client to obtain an access token. There are different types of authentications, for example, if we are an user and we want to login using the web page, we need a token which can identify the user (we), the place from were we are login (we could be using a mobile app instead of the web), and also we want a refresh token to not be asked for a re-logging. On the other hand if we are now a service and we want to communicate with another one, we don't have (and don't want) a user credentials neither the need for a refresh token.
 
 That's the use for the grants. They are set to a client to identify what kind of authentication is allowed to perform
 
 Our Authentication server is using the following grants:
 
-* __client_credentials__: Allows to retreive a token without user crendentials. Used in Resource services to authenticate themselfs when calling another service.
+* __client_credentials__: Allows to retrieve a token without user credentials. Used in Resource services to authenticate themselves when calling another service.
 * __password__: Used by the Clients (web and mobiles) allows the retrieving of a user authentication
 * __refresh_token__: If present the token will include a refresh token. Find more about this in 'Revoking Tokens' section
 
@@ -71,13 +75,33 @@ You can find how to configure this in the 'Clients registration' section
 
 ### JWT
 
+JWT is used to extends the token inside-information. With a jwt token any Resource server can authenticate the user knowing his/her roles and scopes without contacting the authentication server internally. 
+
+The authentication/authorization flow becomes simple:
+![JWT flow](https://cdn-images-1.medium.com/max/1600/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
+
+The JWT configuration is set inside com/mytasks/oauth/config/JwtConfig.java class. You can find there more information regarding how configure it.
+
 ### Clients registration
 
-### User authetincation provider
+Each token retrieving request must provide the client credentials, even if there is not user and we are trying to retrieve a token for an internal service.
+This credentials are placed inside com/mytasks/oauth/config/Oauth2Config.java class. 
+
+### User authentication provider
+
+When a token is requested for a password grant, the user credentials must be checked.
+For that propose the AuthenticationProvider class is used. The process will communicate with the User service to retrieve the user information and checks that everything is fine (meaning password validation) and the tenant service to get the realm information.
 
 ### Endpoints and their purpose
 
+[Waiting for doc-apis].
+
 ### Revoking Tokens
+Following directions for Self-Encoded tokens from [oauth.com](https://www.oauth.com/oauth2-servers/listing-authorizations/revoking-access/):
+
+As we have a truly stateless mechanism of verifying tokens, and our resource server is validating tokens without sharing information with another system (because of jwt use), then the only option is to wait for all outstanding tokens to expire, and prevent the application from being able to generate new tokens for that user. This is the primary reason to use extremely short-lived tokens.
+
+Since there is no mechanism to invalidate individual access tokens, instead we will need to invalidate the application’s refresh tokens for the particular user. This way the next time the application attempts to refresh the access token, the request for a new access token will be denied.
 
 ## Authors
 
