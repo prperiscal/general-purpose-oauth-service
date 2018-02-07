@@ -5,7 +5,4 @@ jdk:
 services:
  - docker
 
-after_success:
- - docker images
- - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
- - mvn dockerfile:push
+script: mvn clean install
