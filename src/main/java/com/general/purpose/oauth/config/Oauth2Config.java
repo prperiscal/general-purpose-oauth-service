@@ -1,6 +1,6 @@
-package com.mytasks.oauth.config;
+package com.general.purpose.oauth.config;
 
-import com.mytasks.oauth.service.UserDetailService;
+import com.general.purpose.oauth.service.UserDetailService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

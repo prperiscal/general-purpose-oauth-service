@@ -1,4 +1,4 @@
-package com.mytasks.oauth.core;
+package com.general.purpose.oauth.core;
 
 import java.util.Collection;
 

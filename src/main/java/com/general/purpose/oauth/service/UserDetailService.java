@@ -1,6 +1,6 @@
-package com.mytasks.oauth.service;
+package com.general.purpose.oauth.service;
 
-import com.mytasks.oauth.core.UserDetails;
+import com.general.purpose.oauth.core.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

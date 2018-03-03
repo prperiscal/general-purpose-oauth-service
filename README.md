@@ -1,4 +1,12 @@
-# mytasks-oauth-service
+# general-purpose-system
+
+General purpose micro-services and architecture provide an extended and robust base from where a new project
+can be started and developed following a consolidated agile approach and with the most used and assumed technologies in the 
+micro-service spring development ecosystem.
+
+Take a look on [Genera Purpose System](https://gist.github.com/prperiscal/900729941edc5d5ddaaf9e21e5055a62) to get more information on how everything integrates together and how the agile development should work.
+
+# general-purpose-oauth-service
 
 Authorization Server responsible for verifying credentials and providing access tokens.
 
@@ -28,7 +36,7 @@ Please read [WORKFLOW-BRANCHING](https://gist.github.com/prperiscal/ce8b8b5a9e0f
 
 Get you a copy of the project up and running on your local machine for development and testing purposes with:
 ```
-git clone https://github.com/prperiscal/mytasks-oauth-service
+git clone https://github.com/prperiscal/general-purpose-oauth-service
 ```
 See deployment for notes on how to deploy the project on a live system.
 
@@ -80,12 +88,12 @@ JWT is used to extends the token inside-information. With a jwt token any Resour
 The authentication/authorization flow becomes simple:
 ![JWT flow](https://cdn-images-1.medium.com/max/1600/1*SSXUQJ1dWjiUrDoKaaiGLA.png)
 
-The JWT configuration is set inside com/mytasks/oauth/config/JwtConfig.java class. You can find there more information regarding how configure it.
+The JWT configuration is set inside com/general/purpose/oauth/config/JwtConfig.java class. You can find there more information regarding how configure it.
 
 ### Clients registration
 
 Each token retrieving request must provide the client credentials, even if there is not user and we are trying to retrieve a token for an internal service.
-This credentials are placed inside com/mytasks/oauth/config/Oauth2Config.java class. 
+This credentials are placed inside com/general/purpose/oauth/config/Oauth2Config.java class. 
 
 ### User authentication provider
 

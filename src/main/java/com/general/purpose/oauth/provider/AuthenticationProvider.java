@@ -1,8 +1,8 @@
-package com.mytasks.oauth.provider;
+package com.general.purpose.oauth.provider;
 
 import static java.util.Collections.emptyList;
 
-import com.mytasks.oauth.service.UserDetailService;
+import com.general.purpose.oauth.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

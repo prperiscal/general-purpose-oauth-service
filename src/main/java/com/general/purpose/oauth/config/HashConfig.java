@@ -1,4 +1,4 @@
-package com.mytasks.oauth.config;
+package com.general.purpose.oauth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
