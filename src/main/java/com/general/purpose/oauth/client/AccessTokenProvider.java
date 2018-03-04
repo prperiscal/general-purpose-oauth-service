@@ -3,6 +3,7 @@ package com.general.purpose.oauth.client;
 
 import javax.annotation.PostConstruct;
 
+import com.general.purpose.oauth.client.exception.GenericFeignInterceptorException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
@@ -34,7 +35,7 @@ public class AccessTokenProvider {
     private long tokenReceivedTimeInSec;
 
     @PostConstruct
-    void init() {
+    public void init() {
         this.clientTokenRequest = clientTokenRequestFactory.createClientTokenRequest();
     }
 
@@ -60,7 +61,7 @@ public class AccessTokenProvider {
             return restTemplate.postForEntity(properties.getAccessTokenUrl(), clientTokenRequest, AccessToken.class)
                                .getBody();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new GenericFeignInterceptorException(e);
         }
     }
 }
