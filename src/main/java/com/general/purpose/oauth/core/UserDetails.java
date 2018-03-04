@@ -1,6 +1,7 @@
 package com.general.purpose.oauth.core;
 
 import java.util.Collection;
+import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Data;
@@ -8,21 +9,21 @@ import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * Entity representing a user.
- * <p>
- * Implements UserDetails to encapsulate the user information in Authentication object.
+ * <p>Entity representing a user.
+ * <p>Implements UserDetails to encapsulate the user information in Authentication object.
  *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
+ * @since 1.0.0
  */
 @Data
 @Builder
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
     @NonNull
-    private String id;
+    private UUID id;
 
     @NonNull
-    private String tenantId;
+    private UUID tenantId;
 
     @NonNull
     private String name;
@@ -36,12 +37,9 @@ public class UserDetails implements org.springframework.security.core.userdetail
     @NonNull
     private String role;
 
-    @NonNull
-    private String language;
-
 
     /**
-     * Returns the authorities granted to the user. Cannot return <code>null</code>.
+     * <p>Returns the authorities granted to the user. Cannot return <code>null</code>.
      *
      * @return the authorities, sorted by natural key (never <code>null</code>)
      */
@@ -51,7 +49,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
     }
 
     /**
-     * Returns the username used to authenticate the user. Cannot return <code>null</code>.
+     * <p>Returns the username used to authenticate the user. Cannot return <code>null</code>.
      *
      * @return the username (never <code>null</code>)
      */
@@ -61,7 +59,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
     }
 
     /**
-     * Indicates whether the user's account has expired. An expired account cannot be
+     * <p>Indicates whether the user's account has expired. An expired account cannot be
      * authenticated.
      *
      * @return <code>true</code> if the user's account is valid (ie non-expired),
@@ -73,7 +71,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
     }
 
     /**
-     * Indicates whether the user is locked or unlocked. A locked user cannot be
+     * <p>Indicates whether the user is locked or unlocked. A locked user cannot be
      * authenticated.
      *
      * @return <code>true</code> if the user is not locked, <code>false</code> otherwise
@@ -84,7 +82,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
     }
 
     /**
-     * Indicates whether the user's credentials (password) has expired. Expired
+     * <p>Indicates whether the user's credentials (password) has expired. Expired
      * credentials prevent authentication.
      *
      * @return <code>true</code> if the user's credentials are valid (ie non-expired),
@@ -96,7 +94,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
     }
 
     /**
-     * Indicates whether the user is enabled or disabled. A disabled user cannot be
+     * <p>Indicates whether the user is enabled or disabled. A disabled user cannot be
      * authenticated.
      *
      * @return <code>true</code> if the user is enabled, <code>false</code> otherwise

@@ -13,9 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
 /**
- * Configure security.
+ * <p>Configure security.
  *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
+ * @since 1.0.0
  */
 @RequiredArgsConstructor
 @Configuration
@@ -36,9 +37,8 @@ public class ServerSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Define authorization endpoints access
-     * <p>
-     * Override default configure to disable formLogin feature and to disable csrf support
+     * <p>Define authorization endpoints access.
+     * <p>Override default configure to disable formLogin feature and to disable csrf support.
      *
      * @param http the {@link HttpSecurity} to modify
      *

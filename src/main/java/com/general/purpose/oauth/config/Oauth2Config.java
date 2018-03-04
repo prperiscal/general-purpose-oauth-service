@@ -14,11 +14,11 @@ import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
- * Convenient strategy for configuring OAuth2 Authorization Server.
- * <p>
- * This beans will be applied to the Spring context automatically by using {@link EnableAuthorizationServer @EnableAuthorizationServer}
+ * <p>Convenient strategy for configuring OAuth2 Authorization Server.
+ * <p>This beans will be applied to the Spring context automatically by using {@link EnableAuthorizationServer @EnableAuthorizationServer}
  *
  * @author <a href="mailto:prperiscal@gmail.com">Pablo Rey Periscal</a>
+ * @since 1.0.0
  */
 @RequiredArgsConstructor
 @Configuration
@@ -47,8 +47,7 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
     private final UserDetailService userDetailService;
 
     /**
-     * Add configuration for clients.
-     * <p>
+     * <p>Add configuration for clients.
      *
      * @param clients in-memory client list
      *
@@ -66,7 +65,7 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * Configure the security of the Authorization Server, which means in practical terms the /oauth/token endpoint. The
+     * <p>Configure the security of the Authorization Server, which means in practical terms the /oauth/token endpoint. The
      * /oauth/authorize endpoint also needs to be secure, but that is a normal user-facing endpoint and should be
      * secured the same way as the rest of your UI, so is not covered here.
      *
@@ -78,7 +77,7 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * Set our extended configuration.
+     * <p>Set our extended configuration.
      * <ul>
      * <li>JWT configuration will be set by the tokenStore {@link JwtConfig#accessTokenConverter()}</li>
      * <li>The user authentication provider by authenticationManager {@link ServerSecurityConfig#authenticationManagerBean()}</li>

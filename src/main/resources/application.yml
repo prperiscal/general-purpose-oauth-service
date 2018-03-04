@@ -5,3 +5,14 @@ server:
   compression:
     enabled: true
     mime-types: application/json, application/xml
+general:
+  purpose:
+    oauth:
+      token:
+        key-file-name: generalpurpose.jks
+        key-pair: generalpurpose
+        key-password: gpurposeKey
+      client:
+        id: OAuth-service
+        secret:
+        accessTokenUrl: http://oauth-service/oauth/token
