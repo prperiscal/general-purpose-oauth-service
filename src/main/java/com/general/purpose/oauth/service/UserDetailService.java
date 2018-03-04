@@ -25,7 +25,6 @@ public class UserDetailService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-        return UserDetails.builder().email("test@gmail.com").id("userId").name("test").password("test").role("ADMIN")
-                          .build();
+        return UserDetails.builder().email("test@gmail.com").name("test").password("test").role("ADMIN").build();
     }
 }
