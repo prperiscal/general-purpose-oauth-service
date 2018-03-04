@@ -1,10 +1,12 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1f994734288748f18a7f9d8645ba3711)](https://www.codacy.com/app/prperiscal/general-purpose-oauth-service?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prperiscal/general-purpose-oauth-service&amp;utm_campaign=Badge_Grade)
+
 # general-purpose-environment
 
 General purpose micro-services and architecture provide an extended and robust base from where a new project
 can be started and developed following a consolidated agile approach and with the most used and assumed technologies in the 
 micro-service spring development ecosystem.
 
-Take a look on [General Purpose Environment](https://gist.github.com/prperiscal/900729941edc5d5ddaaf9e21e5055a62) to get more information on how everything integrates together and how the agile development should work.
+Take a look on [General Purpose Environment](https://gist.github.com/prperiscal/900729941edc5d5ddaaf9e21e5055a62) to get more information on how everything integrates together and how the agile and continuous integration development should work.
 
 # general-purpose-oauth-service
 
